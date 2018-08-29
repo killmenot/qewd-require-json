@@ -1,0 +1,45 @@
+{
+  "name": "qewd-require-json",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Alexey Kucherenko",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/killmenot/qewd-require-json.git"
+  },
+  "bugs": {
+    "url": "https://github.com/killmenot/qewd-require-json/issues"
+  },
+  "homepage": "https://github.com/killmenot/qewd-require-json#readme",
+  "scripts": {
+    "lint": "jshint lib spec",
+    "test": "jasmine --config=spec/support/jasmine.json",
+    "coverage": "nyc --reporter=html --reporter=text jasmine --config=spec/support/jasmine.json",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "nyc": {
+    "all": true,
+    "include": [
+      "lib/**/*.js"
+    ],
+    "exclude": [
+      "coverage",
+      "node_modules",
+      "spec/**/*.js"
+    ]
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.2",
+    "jasmine": "^3.2.0",
+    "jasmine-spec-reporter": "^4.1.1",
+    "jshint": "^2.9.6",
+    "nyc": "^13.0.1",
+    "pre-commit": "^1.2.2"
+  }
+}
