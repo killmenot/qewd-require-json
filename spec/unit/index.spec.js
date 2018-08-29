@@ -100,4 +100,17 @@ describe('qewd-require-json', () => {
 
     expect(actual).toEqual(expected);
   });
+
+  it('should return config when cwd passed as string option', () => {
+    const expected = {
+      value: 'bar'
+    };
+
+    const options = path.join(process.cwd(), '../bar');
+    requireJson = requireJsonFactory(options);
+
+    const actual = requireJson('./config.json');
+
+    expect(actual).toEqual(expected);
+  });
 });
