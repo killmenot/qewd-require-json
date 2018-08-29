@@ -6,20 +6,31 @@
 
 ```
  |
-  -- config.developent.json
-  -- config.integration.json
-  -- config.json
+ |-- bar
+   |-- config.json
+ |-- config.developent.json
+ |-- config.integration.json
+ |-- config.json
 ```
 
 ```js
-const requireJson = require('qewd-require-json');
+const requireJsonFactory = require('qewd-require-json');
+const requireJson = requireJsonFactory();
 
+// basic
 const config = requireJson('./config.json') // config.json loaded
 
+// pass version via NODE_ENV
 process.env.NODE_ENV = 'development';
-const config = requireJson('./config.json') // config.development.json loaded
+const config = requireJson('./config.json') // config.development.json is loaded
 
+// pass version via TEST_ENV
 process.env.NODE_ENV = 'staging';
 process.env.TEST_ENV = 'integration';
-const config = requireJson('./config.json') // config.integration.json loaded
+const config = requireJson('./config.json') // config.integration.json is loaded
+
+// overwrite cwd via options
+const options = { cwd: '/path/to/bar' }
+const requireJson = requireJsonFactory(options);
+const config = requireJson('./config.json') // config.json from bar folder is loaded
 ```

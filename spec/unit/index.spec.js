@@ -1,12 +1,18 @@
 'use strict';
 
 const path = require('path');
-const requireJson = require('../..');
+const requireJsonFactory = require('../..');
 
 describe('qewd-require-json', () => {
+  let requireJson;
+
   beforeAll(() => {
-    const fixturesDir = path.join(process.cwd(), 'spec/fixtures');
-    process.chdir(fixturesDir);
+    const cwd = path.join(process.cwd(), 'spec/fixtures/foo');
+    process.chdir(cwd);
+  });
+
+  beforeEach(() => {
+    requireJson = requireJsonFactory();
   });
 
   afterEach(() => {
@@ -75,6 +81,21 @@ describe('qewd-require-json', () => {
 
     process.env.NODE_ENV = 'development';
     process.env.TEST_ENV = 'integration';
+    const actual = requireJson('./config.json');
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('should return config when options.cwd', () => {
+    const expected = {
+      value: 'bar'
+    };
+
+    const options = {
+      cwd: path.join(process.cwd(), '../bar')
+    };
+    requireJson = requireJsonFactory(options);
+
     const actual = requireJson('./config.json');
 
     expect(actual).toEqual(expected);
