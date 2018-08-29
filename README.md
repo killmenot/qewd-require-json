@@ -1,4 +1,6 @@
-# qewd-require-json: Load configuration JSON file based on environment value
+# qewd-require-json
+
+Load configuration JSON file based on environment value
 
 [![Build Status](https://travis-ci.org/killmenot/qewd-require-json.svg?branch=master)](https://travis-ci.org/killmenot/qewd-require-json) [![Coverage Status](https://coveralls.io/repos/github/killmenot/qewd-require-json/badge.svg?branch=master)](https://coveralls.io/github/killmenot/qewd-require-json?branch=master)
 

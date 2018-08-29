@@ -1,7 +1,7 @@
 {
   "name": "qewd-require-json",
   "version": "1.1.1",
-  "description": "",
+  "description": "Load configuration JSON file based on environment value",
   "author": "Alexey Kucherenko",
   "main": "index.js",
   "license": "MIT",
