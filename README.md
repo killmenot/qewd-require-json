@@ -1,8 +1,9 @@
 # qewd-require-json
 
-Load configuration JSON file based on environment value
+Load QEWD configuration JSON files based on environment
 
-[![Build Status](https://travis-ci.org/killmenot/qewd-require-json.svg?branch=master)](https://travis-ci.org/killmenot/qewd-require-json) [![Coverage Status](https://coveralls.io/repos/github/killmenot/qewd-require-json/badge.svg?branch=master)](https://coveralls.io/github/killmenot/qewd-require-json?branch=master)
+[![Build Status](https://travis-ci.org/killmenot/qewd-require-json.svg?branch=master)](https://travis-ci.org/killmenot/qewd-require-json) [![Coverage Status](https://coveralls.io/repos/github/killmenot/qewd-require-json/badge.svg?branch=master)](https://coveralls.io/github/killmenot/qewd-require-json?branch=master) [![Dependency Status](https://david-dm.org/killmenot/qewd-require-json.svg)](https://david-dm.org/killmenot/qewd-require-json) [![npm version](https://img.shields.io/npm/v/qewd-require-json.svg)](https://www.npmjs.com/package/qewd-require-json)
+
 
 ## Usage
 

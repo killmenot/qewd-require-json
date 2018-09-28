@@ -1,7 +1,7 @@
 {
   "name": "qewd-require-json",
   "version": "1.1.1",
-  "description": "Load configuration JSON file based on environment value",
+  "description": "Load QEWD configuration JSON files based on environment value",
   "author": "Alexey Kucherenko",
   "main": "index.js",
   "license": "MIT",
@@ -27,11 +27,6 @@
     "all": true,
     "include": [
       "lib/**/*.js"
-    ],
-    "exclude": [
-      "coverage",
-      "node_modules",
-      "spec/**/*.js"
     ]
   },
   "devDependencies": {
@@ -39,7 +34,7 @@
     "jasmine": "^3.2.0",
     "jasmine-spec-reporter": "^4.1.1",
     "jshint": "^2.9.6",
-    "nyc": "^13.0.1",
+    "nyc": "^13.1.0",
     "pre-commit": "^1.2.2"
   }
 }

@@ -113,4 +113,30 @@ describe('qewd-require-json', () => {
 
     expect(actual).toEqual(expected);
   });
+
+  it('should return config from "spec" folder', () => {
+    const expected = {
+      value: 'baz.spec'
+    };
+
+    const options = path.join(process.cwd(), '../baz');
+    requireJson = requireJsonFactory(options);
+
+    const actual = requireJson('./config.json');
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('should return config from "spec/support" folder', () => {
+    const expected = {
+      value: 'quux.spec'
+    };
+
+    const options = path.join(process.cwd(), '../quux');
+    requireJson = requireJsonFactory(options);
+
+    const actual = requireJson('./config.json');
+
+    expect(actual).toEqual(expected);
+  });
 });
