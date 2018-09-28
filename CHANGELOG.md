@@ -1,5 +1,12 @@
 # CHANGELOG
 
+
+<a name="1.2.1"></a>
+### 1.2.1 (2018-09-28)
+
+* fix loading absolute path
+
+
 <a name="1.2.0"></a>
 ### 1.2.0 (2018-09-28)
 

@@ -11,10 +11,6 @@ describe('qewd-require-json', () => {
     process.chdir(cwd);
   });
 
-  beforeEach(() => {
-    requireJson = requireJsonFactory();
-  });
-
   afterEach(() => {
     delete process.env.NODE_ENV;
     delete process.env.TEST_ENV;
@@ -24,6 +20,8 @@ describe('qewd-require-json', () => {
     const expected = {
       value: 'foo'
     };
+
+    requireJson = requireJsonFactory();
 
     const actual = requireJson('./config.json');
 
@@ -35,8 +33,24 @@ describe('qewd-require-json', () => {
       value: 'foo.development'
     };
 
+    requireJson = requireJsonFactory();
+
     process.env.NODE_ENV = 'development';
     const actual = requireJson('./config.json');
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('should return config when NODE_ENV and absolute path passed', () => {
+    const expected = {
+      value: 'foo.development'
+    };
+
+    requireJson = requireJsonFactory();
+    process.env.NODE_ENV = 'development';
+
+    const modulePath = path.join(process.cwd(), '../foo/config.json');
+    const actual = requireJson(modulePath);
 
     expect(actual).toEqual(expected);
   });
@@ -45,6 +59,8 @@ describe('qewd-require-json', () => {
     const expected = {
       value: 'foo'
     };
+
+    requireJson = requireJsonFactory();
 
     process.env.NODE_ENV = 'staging';
     const actual = requireJson('./config.json');
@@ -57,8 +73,24 @@ describe('qewd-require-json', () => {
       value: 'foo.integration'
     };
 
+    requireJson = requireJsonFactory();
+
     process.env.TEST_ENV = 'integration';
     const actual = requireJson('./config.json');
+
+    expect(actual).toEqual(expected);
+  });
+
+  it('should return config when TEST_ENV and absolute path passed', () => {
+    const expected = {
+      value: 'foo.integration'
+    };
+
+    requireJson = requireJsonFactory();
+    process.env.TEST_ENV = 'integration';
+
+    const modulePath = path.join(process.cwd(), '../foo/config.json');
+    const actual = requireJson(modulePath);
 
     expect(actual).toEqual(expected);
   });
@@ -67,6 +99,8 @@ describe('qewd-require-json', () => {
     const expected = {
       value: 'foo'
     };
+
+    requireJson = requireJsonFactory();
 
     process.env.TEST_ENV = 'unit';
     const actual = requireJson('./config.json');
@@ -78,6 +112,8 @@ describe('qewd-require-json', () => {
     const expected = {
       value: 'foo.integration'
     };
+
+    requireJson = requireJsonFactory();
 
     process.env.NODE_ENV = 'development';
     process.env.TEST_ENV = 'integration';
@@ -119,10 +155,10 @@ describe('qewd-require-json', () => {
       value: 'baz.spec'
     };
 
-    const options = path.join(process.cwd(), '../baz');
-    requireJson = requireJsonFactory(options);
+    const modulePath = path.join(process.cwd(), '../baz/config.json');
+    requireJson = requireJsonFactory();
 
-    const actual = requireJson('./config.json');
+    const actual = requireJson(modulePath);
 
     expect(actual).toEqual(expected);
   });

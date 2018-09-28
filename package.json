@@ -1,6 +1,6 @@
 {
   "name": "qewd-require-json",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Load QEWD configuration JSON files based on environment value",
   "author": "Alexey Kucherenko",
   "main": "index.js",
@@ -28,6 +28,9 @@
     "include": [
       "lib/**/*.js"
     ]
+  },
+  "dependencies": {
+    "debug": "^4.0.1"
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
