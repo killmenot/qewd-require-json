@@ -1,6 +1,6 @@
 {
   "name": "qewd-require-json",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Load QEWD configuration JSON files based on environment value",
   "author": "Alexey Kucherenko",
   "main": "index.js",
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/killmenot/qewd-require-json#readme",
   "scripts": {
-    "lint": "jshint lib spec",
+    "lint": "jshint lib spec index.js",
     "test": "jasmine --config=spec/support/jasmine.json",
     "coverage": "nyc --reporter=html --reporter=text jasmine --config=spec/support/jasmine.json",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
@@ -32,7 +32,7 @@
   "devDependencies": {
     "coveralls": "^3.0.2",
     "jasmine": "^3.2.0",
-    "jasmine-spec-reporter": "^4.1.1",
+    "jasmine-spec-reporter": "^4.2.1",
     "jshint": "^2.9.6",
     "nyc": "^13.1.0",
     "pre-commit": "^1.2.2"
